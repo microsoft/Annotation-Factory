@@ -1,0 +1,42 @@
+pool:
+  vmImage: ubuntu-16.04
+
+trigger:
+  batch: true
+  branches:
+    include:
+    - master
+  paths:
+    include:
+    - annotationfactory/*
+    - azure-pipelines.yml
+
+steps:
+
+- task: UsePythonVersion@0
+  displayName: 'Use Python >= 3.5'
+  inputs:
+    versionSpec: '>= 3.5'
+    addToPath: true
+    architecture: 'x64' # only applies to windows agents
+
+- script: |
+   python -m pip install --upgrade pip
+   pip install setuptools
+   pip install wheel
+   pip install twine
+   pip install --user --upgrade setuptools wheel
+   pip install --user --upgrade twine
+  displayName: 'Install dependencies'
+
+- script: 'python setup.py bdist_wheel -v $(build.buildId)'
+  displayName: 'Build package'
+
+- task: TwineAuthenticate@0
+  displayName: 'Twine Authenticate'
+  inputs:
+    externalFeeds: PyPi
+
+- script: 'twine upload -r annotationfactory --config-file $(PYPIRC_PATH) dist/*'
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+  displayName: Upload

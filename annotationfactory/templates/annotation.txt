@@ -1,0 +1,2 @@
+{% for item in annotation %}{{ item.id }} {{ item.x_centre }} {{ item.y_centre }} {{ item.x_width }} {{ item.y_height }}
+{% endfor %}

@@ -1,0 +1,18 @@
+{
+    "type": "object",
+    "properties": {
+        "tagId": {"type": "number"},
+        "tagName": {"type": "string"},
+        "region": {
+            "type": "object",
+            "properties": {
+                "left": {"type": "number"},
+                "top": {"type": "number"},
+                "width": {"type": "number"},
+                "height": {"type": "number"}
+            },
+            "required": ["left", "top", "width", "height"]
+        }
+    },
+    "required": ["tagId", "tagName", "region"]
+}
