@@ -1,8 +1,11 @@
 # Introduction 
 
-Annotation-Factory Python SDK. This package works specifically with Microsoft Cognitive Services detection results. `AnnotationWriter` takes a JSON object received from Cognitive Services and produces annotation files in both VOC and YOLO formats for use in training machine learning models.
-
 [![Build Status](https://dev.azure.com/aussiedevcrew/Annotation-Factory/_apis/build/status/Microsoft.Annotation-Factory?branchName=master)](https://dev.azure.com/aussiedevcrew/Annotation-Factory/_build/latest?definitionId=9&branchName=master)
+[![GitHub](https://img.shields.io/github/license/Microsoft/Annotation-Factory.svg?color=blue&label=License)](https://github.com/Microsoft/Annotation-Factory/blob/master/LICENSE)
+[![PyPI](https://img.shields.io/pypi/v/annotationfactory.svg?label=PyPi)](https://pypi.org/project/annotationfactory/)
+![Python Version](https://img.shields.io/pypi/pyversions/annotationfactory.svg?label=Python)
+
+Annotation-Factory Python SDK. This package works specifically with Microsoft Cognitive Services detection results. `AnnotationWriter` takes a JSON object received from Cognitive Services and produces annotation files in both VOC and YOLO formats for use in training machine learning models.
 
 # Getting Started
 
